@@ -171,6 +171,7 @@ Store.register({Curve: CurvePlot,
                 # Annotation plots
                 VLine: VLinePlot,
                 HLine: HLinePlot,
+                Slope: SlopePlot,
                 Arrow: ArrowPlot,
                 Spline: SplinePlot,
                 Text: TextPlot,
