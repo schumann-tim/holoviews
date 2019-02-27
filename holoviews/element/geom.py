@@ -39,7 +39,7 @@ class Points(Geometry):
 
 class VectorField(Geometry):
     """
-    A VectorField represents a set of vectors in 2D spac with an
+    A VectorField represents a set of vectors in 2D space with an
     associated angle, as well as an optional magnitude and any number
     of other value dimensions. The angles are assumed to be defined in
     radians and by default the magnitude is assumed to be normalized
@@ -50,3 +50,16 @@ class VectorField(Geometry):
 
     vdims = param.List(default=[Dimension('Angle', cyclic=True, range=(0,2*np.pi)),
                                 Dimension('Magnitude')], bounds=(1, None))
+
+
+class Segments(Geometry):
+    """
+    Segments represent a collection of lines in 2D space.
+    """
+    group = param.String(default='Segments', constant=True)
+
+    kdims = param.List(default=[Dimension('x0'), Dimension('y0'),
+                                Dimension('x1'), Dimension('y1')],
+                       bounds=(4, None), constant=True, doc="""
+        Segments represent lines given by x- and y-
+        coordinates in 2D space.""")
