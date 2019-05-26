@@ -907,13 +907,7 @@ class ColorbarPlot(ElementPlot):
 
         if not isinstance(cmap, mpl_colors.Colormap):
             if isinstance(cmap, dict):
-                # The palette needs to correspond to the map's limits (vmin/vmax). So use the same
-                # factors as in the map's clim computation above.
-                range_key = dim_range_key(vdim)
-                if range_key in ranges and 'factors' in ranges[range_key]:
-                    factors = ranges[range_key]['factors']
-                else:
-                    factors = util.unique_array(values)
+                factors = util.unique_array(values)
                 palette = [cmap.get(f, colors.get('NaN', {'color': self._default_nan})['color'])
                            for f in factors]
             else:
